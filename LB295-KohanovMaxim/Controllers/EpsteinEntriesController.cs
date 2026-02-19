@@ -34,7 +34,7 @@ namespace KohanovMaximLB_295.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+       
         public async Task<ActionResult<EpsteinEntry>> Create(EpsteinEntry entry)
         {
             _context.EpsteinEntries.Add(entry);
@@ -43,7 +43,7 @@ namespace KohanovMaximLB_295.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
+       
         public async Task<IActionResult> Update(int id, EpsteinEntry entry)
         {
             if (id != entry.Id) return BadRequest();
@@ -53,7 +53,7 @@ namespace KohanovMaximLB_295.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+       
         public async Task<IActionResult> Delete(int id)
         {
             var entry = await _context.EpsteinEntries.FindAsync(id);

@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 // JWT Auth
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.ASCII.GetBytes(jwtSettings["Key"]);
-builder.Services.AddAuthentication(options =>
+/*builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -39,7 +39,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 builder.Services.AddAuthorization();
-
+*/
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -49,8 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthentication();
-app.UseAuthorization();
+/* app.UseAuthentication();
+app.UseAuthorization(); */
 app.MapControllers();
 app.Run();
 
